@@ -1,0 +1,59 @@
+<!-- ============================================================== -->
+<!-- sidebar -->
+<!-- ============================================================== -->
+<style>
+    :host >>> .mat-list-item.selected > .mat-list-item-content > a{
+        color: #99abb4 !important;
+        background-color: transparent !important;
+        border-bottom: 1px solid #99abb4;
+        border-radius: 0px !important;
+    }
+    mat-icon.sfcn-succes{
+        color: #8dccc0 !important
+    }
+    mat-icon.sfcn-error{
+        color: #f94183 !important
+    }
+</style>
+<div *ngIf="false" class="user-profile" style="background: url(assets/images/background/user-info.jpg) no-repeat;">
+    <!-- User profile image -->
+    <div class="profile-img"> <img src="assets/images/users/profile.png" alt="user"> </div>
+    <!-- User profile text-->
+    <!-- ============================================================== -->
+    <!-- Profile - style you can find in header.scss -->
+    <!-- ============================================================== -->
+    <div class="profile-text"><a [matMenuTriggerFor]="sdprofile" class=""> Markarn Doe <i
+                class="ti-angle-down font-12 m-l-5"></i></a></div>
+    <mat-menu #sdprofile="matMenu" class="mymegamenu">
+        <button mat-menu-item>
+            <mat-icon>settings</mat-icon> Settings
+        </button>
+        <button mat-menu-item>
+            <mat-icon>account_box</mat-icon> Profile
+        </button>
+        <button mat-menu-item>
+            <mat-icon>notifications_off</mat-icon> Disable notifications
+        </button>
+        <button mat-menu-item>
+            <mat-icon>exit_to_app</mat-icon> Sign Out
+        </button>
+    </mat-menu>
+
+</div>
+<!-- [routerLink]="['/', menuitem.state]" -->
+<mat-nav-list appAccordion>
+    <mat-list-item appAccordionLink *ngFor="let menuitem of menuItems.getMenuitem()" routerLinkActive="selected"
+        group="{{menuitem.state}}">
+
+        <a class="" appAccordionToggle
+            [routerLink]="!menuitem.subroute ? ['/', menuitem.state] : ['/', menuitem.state, menuitem.subroute ?  menuitem.subroute : '']"
+            *ngIf=" menuitem.display ? menuitem.type === 'link' : false">
+            <mat-icon class="mat-icon material-icons {{menuitem.color_icon}}">{{ menuitem.icon }}</mat-icon>
+            <span>{{ menuitem.name }}</span>
+            <span fxFlex></span>
+            <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span>
+        </a>
+
+    </mat-list-item>
+
+</mat-nav-list>

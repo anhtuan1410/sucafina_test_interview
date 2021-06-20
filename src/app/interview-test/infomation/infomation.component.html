@@ -1,0 +1,254 @@
+<style>
+  .general-tab {
+    background-color: #cae1e6 !important;
+    margin-right: 15px;
+    border: 1px solid #2ec5e6;
+  }
+
+  .extra-tab {
+    background-color: #e1dcdc !important;
+    border: 1px solid #928d8d;
+  }
+
+  .general-tab,
+  .extra-tab {
+    padding: 10px;
+    font-weight: 300;
+    border-radius: 20px;
+  }
+
+  .infomation-tab {
+    color: #a49b93;
+  }
+
+  :host>>>mat-form-field.inp-desmo .mat-form-field-flex {
+    border: 1px solid #968c83;
+  }
+
+  :host>>>mat-form-field.inp-desmo {
+    margin-bottom: 20px;
+  }
+
+  :host>>>mat-form-field.inp-desmo .mat-form-field-infix {
+    margin: 10px;
+  }
+
+  :host>>>mat-form-field.inp-desmo .mat-form-field-underline {
+    display: none;
+  }
+
+  :host>>>mat-form-field.inp-desmo label.mat-form-field-label {
+    -webkit-transform: translateY(-1.34375em) scale(0.75) !important;
+    transform: translateY(-1.34375em) scale(0.75) !important;
+  }
+
+  .btn-nemo {
+    background-color: #007680;
+    padding: 1px 28px;
+    color: white;
+    border-radius: 0px;
+    font-weight: 100;
+  }
+
+  .div-scroll{
+    min-height: 100%;
+    height: 100vh;
+    overflow-x: scroll;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+
+
+  /* width */
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+.div-scroll{
+  scroll-behavior: smooth;
+}
+
+</style>
+<mat-card style="box-shadow: none !important; margin: 0px;">
+
+  <mat-card-content class="infomation-tab">
+
+    <div class="row">
+      <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6 text-lelf">
+        <mat-card-title>Create Menu</mat-card-title>
+        <mat-card-subtitle>Home > User & Security > Create Menu</mat-card-subtitle>
+      </div>
+      <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6 text-right">
+        <button mat-button color="primary" class="btn-nemo">Create</button>
+        &nbsp;&nbsp;
+        <button mat-button color="primary" class="btn-nemo">Create & Continue</button>
+        &nbsp;&nbsp;
+        <button mat-button color="primary" class="btn-nemo">Cancel</button>
+        &nbsp;&nbsp;
+      </div>
+    </div>
+
+  </mat-card-content>
+
+  <br />
+
+
+
+
+
+  <div class="div-scroll" id="div-need-scroll">
+
+
+
+    <mat-card-content class="infomation-tab" id="section-infomation">
+
+      <div class="row">
+        <div class="col-md-3 col-xs-3 col-sm-3 col-lg-3"
+          style="display: flex;align-items: center;justify-content: left;">
+          <mat-card-title>Infomation</mat-card-title>
+          <mat-card-subtitle></mat-card-subtitle>
+        </div>
+        <div class="col-md-9 col-xs-9 col-sm-9 col-lg-9">
+          <span class="badge bg-secondary general-tab">General</span>
+          <span class="badge bg-secondary extra-tab">Extra infomation</span>
+        </div>
+      </div>
+      <br />
+      <br />
+      <div class="row">
+
+        <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+          <form [formGroup]="infomationFormGroup">
+            <div class="row">
+              <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6">
+                <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12" style="padding: 0px;">
+                  <mat-form-field class="inp-desmo">
+                    <input matInput placeholder="Menu Code" formControlName="menuCode">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12" style="padding: 0px;">
+                  <mat-form-field class="inp-desmo">
+                    <input matInput placeholder="Menu Name" formControlName="menuName">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6">
+                <mat-form-field class="inp-desmo">
+                  <input matInput placeholder="Description" formControlName="description">
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6">
+                <mat-form-field class="inp-desmo">
+                  <input matInput type="date" placeholder="Start date" formControlName="startDate">
+                </mat-form-field>
+              </div>
+              <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6">
+                <mat-form-field class="inp-desmo">
+                  <input matInput type="date" placeholder="End date" formControlName="endDate">
+                </mat-form-field>
+              </div>
+            </div>
+
+
+          </form>
+        </div>
+
+      </div>
+      
+
+    </mat-card-content>
+
+    <br />
+
+    <mat-card-content class="infomation-tab" id="section-menu-item">
+
+      <div class="row">
+        <div class="col-md-3 col-xs-3 col-sm-3 col-lg-3"
+          style="display: flex;align-items: center;justify-content: left;">
+          <mat-card-title>Menu item</mat-card-title>
+          <mat-card-subtitle></mat-card-subtitle>
+        </div>
+        <div class="col-md-9 col-xs-9 col-sm-9 col-lg-9 text-right">
+          <a style="cursor: pointer;color: #6abfe4;" class="font-weight-bold" (click)="AddItem()" target="_blank">Add
+            menu item</a>
+        </div>
+      </div>
+      <br />
+      <br />
+      <div class="row">
+
+        <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+
+          <table class="table" style="border: 1px solid #968c83;">
+            <thead style="background: #968c83;  color: white;  font-size: 14px;">
+              <tr>
+                <th scope="col">Menu Item Code</th>
+                <th scope="col">Menu Item Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+
+            <tbody *ngIf="hasData && false">
+              <tr *ngFor="let p of dataSource|async">
+                <td>{{p.MenuItemCode}}</td>
+                <td>{{p.MenuItemName}}</td>
+                <td>{{p.Description}}</td>
+                <td>
+                  <button mat-button color="primary">
+                    <mat-icon>settings</mat-icon> Edit
+                  </button>
+                  <button mat-button color="warn">
+                    <mat-icon>remove_circle</mat-icon> Remove
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+
+            <tbody *ngIf="true">
+              <tr>
+                <td colspan="4" class="text-center" style="padding: 50px;">
+                  There is no menu items
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+
+        </div>
+
+      </div>
+
+
+
+    </mat-card-content>
+
+    <br />
+    <div class="spaces" style="width: 100%; height: 400px;">
+
+    </div>
+    <!-- <div class="spaces" [style]="heightSpace()">
+
+    </div> -->
+
+  </div>
+
+</mat-card>
